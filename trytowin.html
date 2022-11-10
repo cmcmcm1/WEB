@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try to win!</title>
+
+    <style>
+        .lose-button {
+            float: left;
+            position: absolute;
+            text-align:center;
+            vertical-align: middle;
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: #a9dfc5;
+        }
+        .win-button {
+            float: left;
+            margin-left: 50%;
+            display: inline-block;
+            position: absolute;
+            text-align:center;
+            vertical-align: middle;
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: #a9dfc5;
+        }
+    </style>
+</head>
+
+<body>
+<div style="vertical-align: middle; align-items: center; left: 0; bottom: 0; right: 0; top: 0;">
+    <div id="lose" class="lose-button">Програти</div>
+    <div id="win" class="win-button">Виграти</div>
+</div>
+
+<script>
+    const random = (min, max) => {
+        const rand = min + Math.random() * (max - min + 1);
+        return Math.floor(rand);
+    }
+
+    const win = document.querySelector('#win');
+    const lose = document.querySelector('#lose');
+
+    win.addEventListener('mouseenter', () => {
+        win.style.left = `${random(0, 100)}%`;
+        win.style.top = `${random(0, 100)}%`;
+    });
+
+    lose.addEventListener('click', () => {
+        alert("Нехай щастить");
+    });
+</script>
+</body>
+
+</html>
