@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Endless scroll</title>
+</head>
+<body>
+<ul id="elements"></ul>
+<script>
+
+    let elements=document.getElementById("elements");
+    let nextItem = 1;
+    let loadMore = function() {
+        for (let i = 0; i < 50; i++) {
+            let item = document.createElement('li');
+            item.innerText = 'Item ' + nextItem++;
+            elements.appendChild(item);
+        }
+    }
+    loadMore();
+
+    window.addEventListener('scroll', function() {
+        console.log("scrolled");
+        if (elements.scrollTop + elements.clientHeight >= elements.scrollHeight) {
+            loadMore();
+        }
+    });
+
+</script>
+</body>
+</html>
