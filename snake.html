@@ -4,7 +4,6 @@
   <title>Snake Game</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
 <div class="container">
   <div class="row">
@@ -44,9 +43,9 @@
     if (playerY > tileCount - 1) {
       playerY = 0;
     }
-    ctx.fillStyle = '#000'; // BG
+    ctx.fillStyle = 'rgb(169,223,197)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#3ea282'; // Snake
+    ctx.fillStyle = 'rgba(10,10,10,0.32)';
     for (let i = 0; i < trail.length; i++) {
       ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2)
       if (trail[i].x == playerX && trail[i].y == playerY) {
@@ -62,7 +61,7 @@
       appleX = Math.floor((Math.random() * tileCount));
       appleY = Math.floor((Math.random() * tileCount));
     }
-    ctx.fillStyle = '#A52A2A'; //Apple
+    ctx.fillStyle = '#A52A2A';
     ctx.fillRect(appleX * gridSize, appleY * gridSize, gridSize - 2, gridSize - 2);
   }
   keyPush = (e) => {
